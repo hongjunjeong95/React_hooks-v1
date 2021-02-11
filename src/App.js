@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useTitle } from "./useTitle";
 
 // This array was for useTabs
 const content = [
@@ -13,19 +13,11 @@ const content = [
 ];
 
 const App = () => {
-  const sayHello = () => console.log("hello");
-
-  // useEffect works as componentDidmount, componentDidUpdate, componentWillUnMount
-  useEffect(() => {
-    sayHello();
-  });
-  const [number, setNumber] = useState(0);
-  const [aNumber, setAnumber] = useState(0);
+  const titleUpdater = useTitle("Loading...");
+  setTimeout(() => titleUpdater("Home"), 2000);
   return (
     <div className="App">
       <div>Hi</div>
-      <button onClick={() => setNumber(number + 1)}>{number}</button>
-      <button onClick={() => setAnumber(aNumber + 1)}>{aNumber}</button>
     </div>
   );
 };
