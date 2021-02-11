@@ -1,13 +1,14 @@
 import { useBeforeLeave } from "./useBeforeLeave";
 import { useConfirm } from "./useConfirm";
-import { usePreventLeave } from "./usePreventLeave";
+import { useFadeIn } from "./useFadeIn";
 
 const App = () => {
-  const begForLife = () => console.log("Please don't leave");
-  useBeforeLeave(begForLife);
+  const fadeInH1 = useFadeIn(1, 2);
+  const fadeInP = useFadeIn(5, 10);
   return (
     <div className="App">
-      <hi>Hi</hi>
+      <h1 {...fadeInH1}>Hi</h1>
+      <p {...fadeInP}>lore asdklfjasdkfl</p>
     </div>
   );
 };
