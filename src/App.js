@@ -1,4 +1,4 @@
-import { useTitle } from "./useTitle";
+import { useClick } from "./useClick";
 
 // This array was for useTabs
 const content = [
@@ -13,11 +13,12 @@ const content = [
 ];
 
 const App = () => {
-  const titleUpdater = useTitle("Loading...");
-  setTimeout(() => titleUpdater("Home"), 2000);
+  const sayHello = () => console.log("say hello");
+  const title = useClick(sayHello);
+
   return (
     <div className="App">
-      <div>Hi</div>
+      <h1 ref={title}>Hi</h1>
     </div>
   );
 };
