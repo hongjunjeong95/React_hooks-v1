@@ -1,14 +1,13 @@
-import { useBeforeLeave } from "./useBeforeLeave";
-import { useConfirm } from "./useConfirm";
-import { useFadeIn } from "./useFadeIn";
+import { useNetwork } from "./useNetwork";
 
 const App = () => {
-  const fadeInH1 = useFadeIn(1, 2);
-  const fadeInP = useFadeIn(5, 10);
+  const handleNetworkChange = (online) => {
+    console.log(online ? "We just went online " : "We are offline");
+  };
+  const onLine = useNetwork(handleNetworkChange);
   return (
     <div className="App">
-      <h1 {...fadeInH1}>Hi</h1>
-      <p {...fadeInP}>lore asdklfjasdkfl</p>
+      <h1>{onLine ? "Online" : "Offline"}</h1>
     </div>
   );
 };
