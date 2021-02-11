@@ -1,5 +1,6 @@
-import { useTabs } from "./useTabs";
+import { useEffect, useState } from "react";
 
+// This array was for useTabs
 const content = [
   {
     tab: "Section 1",
@@ -12,13 +13,19 @@ const content = [
 ];
 
 const App = () => {
-  const { currentItem, changeItem } = useTabs(0, content);
+  const sayHello = () => console.log("hello");
+
+  // useEffect works as componentDidmount, componentDidUpdate, componentWillUnMount
+  useEffect(() => {
+    sayHello();
+  });
+  const [number, setNumber] = useState(0);
+  const [aNumber, setAnumber] = useState(0);
   return (
     <div className="App">
-      {content.map((section, index) => (
-        <button onClick={() => changeItem(index)}>{section.tab}</button>
-      ))}
-      <div>{currentItem.content}</div>
+      <div>Hi</div>
+      <button onClick={() => setNumber(number + 1)}>{number}</button>
+      <button onClick={() => setAnumber(aNumber + 1)}>{aNumber}</button>
     </div>
   );
 };
