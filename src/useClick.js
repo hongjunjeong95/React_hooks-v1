@@ -12,6 +12,7 @@ export const useClick = (onClick) => {
     return () => {
       if (element.current) {
         element.current.removeEventListener("click", onClick);
+        console.log("unmount");
       }
     };
   }, []);

@@ -1,24 +1,12 @@
-import { useClick } from "./useClick";
-
-// This array was for useTabs
-const content = [
-  {
-    tab: "Section 1",
-    content: "I'm the content of the Section 1",
-  },
-  {
-    tab: "Section 2",
-    content: "I'm the content of the Section 2",
-  },
-];
+import { useConfirm } from "./useConfirm";
 
 const App = () => {
-  const sayHello = () => console.log("say hello");
-  const title = useClick(sayHello);
-
+  const deleteWorld = () => console.log("Deleting the world");
+  const abort = () => console.log("Aborted!");
+  const confirmDelete = useConfirm("Are you sure", deleteWorld, abort);
   return (
     <div className="App">
-      <h1 ref={title}>Hi</h1>
+      <button onClick={confirmDelete}>Delete the world</button>
     </div>
   );
 };
