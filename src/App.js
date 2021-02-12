@@ -1,12 +1,17 @@
-import { useNotification } from "./useNotification";
+import useAxios from "./useAxios";
 
 const App = () => {
-  const triggerNotif = useNotification("Can I steal your kimchi?", {
-    body: "I love kimchi don't you?",
+  const { loading, data, error, refetch } = useAxios({
+    url: "https://yts-proxy.now.sh/list_movies.json?sort_by=rating",
   });
+  console.log(
+    `Loading:${loading}\nError:${error}\nData:${JSON.stringify(data)}`
+  );
   return (
     <div className="App" style={{ height: "1000vh" }}>
-      <button onClick={triggerNotif}>Hello</button>
+      <h1>{data && data.status}</h1>
+      <h2>{loading && "Loading"}</h2>
+      <button onClick={refetch}>Refetch</button>
     </div>
   );
 };
